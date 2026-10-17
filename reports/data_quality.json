@@ -1,0 +1,162 @@
+{
+  "rows_in": 50180,
+  "duplicate_lead_ids_dropped": 180,
+  "out_of_range_set_to_null": {},
+  "offer_views_without_offer_page": 7554,
+  "missing_values": {
+    "city": 932,
+    "price": 928,
+    "discount_percent": 541
+  },
+  "rows_out": 50000,
+  "positive_rate": 0.0917,
+  "monthly": [
+    {
+      "created_at": "2026-04",
+      "leads": 10081,
+      "conversion": 0.0976
+    },
+    {
+      "created_at": "2026-05",
+      "leads": 10245,
+      "conversion": 0.0972
+    },
+    {
+      "created_at": "2026-06",
+      "leads": 9840,
+      "conversion": 0.0949
+    },
+    {
+      "created_at": "2026-07",
+      "leads": 10454,
+      "conversion": 0.0936
+    },
+    {
+      "created_at": "2026-08",
+      "leads": 9380,
+      "conversion": 0.0738
+    }
+  ],
+  "expected_margin_to_price": {
+    "count": 49072.0,
+    "mean": 0.03,
+    "std": 0.0057,
+    "min": 0.024,
+    "25%": 0.026,
+    "50%": 0.026,
+    "75%": 0.036,
+    "max": 0.042
+  },
+  "expired_policy_share": 0.1427,
+  "univariate_auc": [
+    {
+      "feature": "offer_views_last_7d",
+      "auc": 0.6186
+    },
+    {
+      "feature": "visited_offer_page",
+      "auc": 0.6086
+    },
+    {
+      "feature": "has_previous_purchase",
+      "auc": 0.5919
+    },
+    {
+      "feature": "days_to_policy_expiry",
+      "auc": 0.5794
+    },
+    {
+      "feature": "sessions_last_7d",
+      "auc": 0.5749
+    },
+    {
+      "feature": "minutes_since_abandonment",
+      "auc": 0.5647
+    },
+    {
+      "feature": "channel",
+      "auc": 0.5342
+    },
+    {
+      "feature": "price",
+      "auc": 0.5316
+    },
+    {
+      "feature": "product_type",
+      "auc": 0.5314
+    },
+    {
+      "feature": "discount_percent",
+      "auc": 0.5307
+    },
+    {
+      "feature": "expected_margin",
+      "auc": 0.5306
+    },
+    {
+      "feature": "insurance_company",
+      "auc": 0.5294
+    },
+    {
+      "feature": "incoming_call_last_24h",
+      "auc": 0.5237
+    },
+    {
+      "feature": "payment_type",
+      "auc": 0.522
+    },
+    {
+      "feature": "days_since_last_visit",
+      "auc": 0.5147
+    },
+    {
+      "feature": "city",
+      "auc": 0.5131
+    },
+    {
+      "feature": "device",
+      "auc": 0.5112
+    },
+    {
+      "feature": "partner",
+      "auc": 0.5074
+    },
+    {
+      "feature": "price_comparisons_last_7d",
+      "auc": 0.5024
+    }
+  ],
+  "suspicious_features": [],
+  "binary_conversion": {
+    "incoming_call_last_24h": {
+      "0": {
+        "size": 46033,
+        "mean": 0.0874
+      },
+      "1": {
+        "size": 3967,
+        "mean": 0.1414
+      }
+    },
+    "visited_offer_page": {
+      "0": {
+        "size": 15475,
+        "mean": 0.0332
+      },
+      "1": {
+        "size": 34525,
+        "mean": 0.1179
+      }
+    },
+    "has_previous_purchase": {
+      "0": {
+        "size": 34614,
+        "mean": 0.0696
+      },
+      "1": {
+        "size": 15386,
+        "mean": 0.1414
+      }
+    }
+  }
+}

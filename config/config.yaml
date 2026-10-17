@@ -1,0 +1,88 @@
+seed: 42
+
+data:
+  csv_path: data/leads.csv
+  raw_table: raw.leads
+
+paths:
+  charts: charts
+  reports: reports
+  models: artifacts/models
+
+target: completed_purchase
+
+# Out-of-time split on created_at. Train = everything before train_end,
+# validation = [train_end, valid_end), test = everything after valid_end.
+split:
+  train_end: "2026-07-01"
+  valid_end: "2026-08-01"
+
+features:
+  categorical:
+    - product_type
+    - channel
+    - device
+    - partner
+    - city
+    - insurance_company
+    - payment_type
+  numeric:
+    - minutes_since_abandonment
+    - days_to_policy_expiry
+    - price
+    - discount_percent
+    - has_previous_purchase
+    - visited_offer_page
+    - sessions_last_7d
+    - offer_views_last_7d
+    - price_comparisons_last_7d
+    - days_since_last_visit
+  # Columns we never feed to the model, kept here so the reasoning is in one place.
+  # lead_id: identifier. created_at: used for the split and for hour/weekday only.
+  # expected_margin: ~2.6% of price, so it's redundant; used for expected value instead.
+  never_use:
+    - lead_id
+    - created_at
+    - expected_margin
+    - completed_purchase
+
+# incoming_call_last_24h is trained both ways on every run. It only goes into the
+# production model if someone confirms it is known at scoring time.
+leakage_review:
+  feature: incoming_call_last_24h
+  timing_confirmed: false
+  # PR-AUC gain on validation below this is treated as "not worth it"
+  min_pr_auc_gain: 0.005
+
+model:
+  logreg:
+    C: [0.001, 0.003, 0.01, 0.03, 0.1, 1.0]
+  xgboost:
+    n_trials: 15
+    n_estimators: 2000
+    early_stopping_rounds: 100
+    search_space:
+      max_depth: [2, 3, 4, 5]
+      learning_rate: [0.02, 0.05, 0.1]
+      min_child_weight: [1, 5, 10, 20]
+      subsample: [0.7, 0.85, 1.0]
+      colsample_bytree: [0.6, 0.8, 1.0]
+      reg_lambda: [1, 5, 10]
+
+evaluation:
+  top_k: [0.05, 0.10, 0.20, 0.30]
+  segments: [product_type, channel]
+
+scoring:
+  # null = score every lead in the table. In production this would be open leads only.
+  created_from: null
+  rank_by: probability  # probability | expected_value
+  tiers:
+    P1: 0.10   # top 10% of the batch
+    P2: 0.30   # next 20%
+    # everything else is P3
+
+monitoring:
+  psi_bins: 10
+  psi_warn: 0.10
+  psi_alert: 0.25

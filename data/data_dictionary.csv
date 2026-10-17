@@ -1,0 +1,23 @@
+﻿column_name,description
+Lead ID,Lead identifier
+Created At,Time the lead was created
+Product Type,Insurance product the user is looking for
+Channel,Acquisition channel the lead came from
+Device,Device used by the user
+Partner,Partner or source related to the lead
+City,User's city
+Insurance Company,Insurance company selected or preferred by the user
+Payment Type,Selected payment method
+Minutes Since Abandonment,Minutes since the user last abandoned the purchase flow
+Days To Policy Expiry,Days left until the user's current policy expires
+Price,Quoted policy price
+Discount Percent,Offered discount percentage
+Has Previous Purchase,Whether the user has purchased before
+Visited Offer Page,Whether the user reached the offers page
+Incoming Call Last 24h,Whether there was an incoming call related to the user in the last 24 hours
+Sessions Last 7d,Number of user sessions in the last 7 days
+Offer Views Last 7d,Number of times the user viewed offers in the last 7 days
+Price Comparisons Last 7d,Number of price comparisons in the last 7 days
+Days Since Last Visit,Days since the user's last visit
+Expected Margin,Expected margin if the purchase is completed
+Completed Purchase,Whether the lead eventually completed the purchase (target)

@@ -1,0 +1,7 @@
+data/
+charts/
+reports/
+artifacts/
+.env
+**/__pycache__
+.pytest_cache

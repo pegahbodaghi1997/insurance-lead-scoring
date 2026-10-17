@@ -1,0 +1,378 @@
+{
+  "training_run": "20261015T175504",
+  "split": {
+    "train_end": "2026-07-01",
+    "valid_end": "2026-08-01"
+  },
+  "sizes": {
+    "train": 30166,
+    "valid": 10454,
+    "test": 9380
+  },
+  "finalists": {
+    "without_call": "logreg_without_call",
+    "with_call": "logreg_with_call"
+  },
+  "chosen_model": "logreg_without_call",
+  "incoming_call_decision": {
+    "include": false,
+    "chosen_variant": "without_call",
+    "pr_auc_gain": 0.007,
+    "roc_auc_gain": 0.0015,
+    "timing_confirmed": false,
+    "min_pr_auc_gain": 0.005,
+    "reason": "The feature adds +0.0070 PR-AUC on validation, but we cannot confirm the call happens before scoring. A call recorded after abandonment could be part of the outcome itself, so the gain may not hold in production. Excluded until the timing is confirmed."
+  },
+  "results": {
+    "logreg_without_call": {
+      "model_version": "20261015T175504-logreg-without_call",
+      "algorithm": "logreg",
+      "variant": "without_call",
+      "valid": {
+        "roc_auc": 0.7127,
+        "pr_auc": 0.1978
+      },
+      "test": {
+        "n": 9380,
+        "base_rate": 0.0738,
+        "mean_score": 0.0931,
+        "roc_auc": 0.6974,
+        "pr_auc": 0.1485,
+        "brier": 0.0665,
+        "log_loss": 0.2486,
+        "top_k": [
+          {
+            "k": 0.05,
+            "n_called": 469,
+            "precision": 0.2175,
+            "recall": 0.1474,
+            "lift": 2.95
+          },
+          {
+            "k": 0.1,
+            "n_called": 938,
+            "precision": 0.178,
+            "recall": 0.2413,
+            "lift": 2.41
+          },
+          {
+            "k": 0.2,
+            "n_called": 1876,
+            "precision": 0.145,
+            "recall": 0.3931,
+            "lift": 1.97
+          },
+          {
+            "k": 0.3,
+            "n_called": 2814,
+            "precision": 0.1333,
+            "recall": 0.5419,
+            "lift": 1.81
+          }
+        ]
+      }
+    },
+    "xgboost_without_call": {
+      "model_version": "20261015T175504-xgboost-without_call",
+      "algorithm": "xgboost",
+      "variant": "without_call",
+      "valid": {
+        "roc_auc": 0.7102,
+        "pr_auc": 0.1959
+      },
+      "test": {
+        "n": 9380,
+        "base_rate": 0.0738,
+        "mean_score": 0.0929,
+        "roc_auc": 0.6928,
+        "pr_auc": 0.1461,
+        "brier": 0.0667,
+        "log_loss": 0.2493,
+        "top_k": [
+          {
+            "k": 0.05,
+            "n_called": 469,
+            "precision": 0.2068,
+            "recall": 0.1402,
+            "lift": 2.8
+          },
+          {
+            "k": 0.1,
+            "n_called": 938,
+            "precision": 0.1695,
+            "recall": 0.2298,
+            "lift": 2.3
+          },
+          {
+            "k": 0.2,
+            "n_called": 1876,
+            "precision": 0.1439,
+            "recall": 0.3902,
+            "lift": 1.95
+          },
+          {
+            "k": 0.3,
+            "n_called": 2814,
+            "precision": 0.1308,
+            "recall": 0.5318,
+            "lift": 1.77
+          }
+        ]
+      }
+    },
+    "logreg_with_call": {
+      "model_version": "20261015T175504-logreg-with_call",
+      "algorithm": "logreg",
+      "variant": "with_call",
+      "valid": {
+        "roc_auc": 0.7142,
+        "pr_auc": 0.2048
+      },
+      "test": {
+        "n": 9380,
+        "base_rate": 0.0738,
+        "mean_score": 0.0932,
+        "roc_auc": 0.6987,
+        "pr_auc": 0.1549,
+        "brier": 0.0665,
+        "log_loss": 0.2482,
+        "top_k": [
+          {
+            "k": 0.05,
+            "n_called": 469,
+            "precision": 0.2154,
+            "recall": 0.146,
+            "lift": 2.92
+          },
+          {
+            "k": 0.1,
+            "n_called": 938,
+            "precision": 0.1855,
+            "recall": 0.2514,
+            "lift": 2.51
+          },
+          {
+            "k": 0.2,
+            "n_called": 1876,
+            "precision": 0.1466,
+            "recall": 0.3974,
+            "lift": 1.99
+          },
+          {
+            "k": 0.3,
+            "n_called": 2814,
+            "precision": 0.1311,
+            "recall": 0.5332,
+            "lift": 1.78
+          }
+        ]
+      }
+    },
+    "xgboost_with_call": {
+      "model_version": "20261015T175504-xgboost-with_call",
+      "algorithm": "xgboost",
+      "variant": "with_call",
+      "valid": {
+        "roc_auc": 0.7115,
+        "pr_auc": 0.1992
+      },
+      "test": {
+        "n": 9380,
+        "base_rate": 0.0738,
+        "mean_score": 0.093,
+        "roc_auc": 0.6979,
+        "pr_auc": 0.155,
+        "brier": 0.0665,
+        "log_loss": 0.2482,
+        "top_k": [
+          {
+            "k": 0.05,
+            "n_called": 469,
+            "precision": 0.2132,
+            "recall": 0.1445,
+            "lift": 2.89
+          },
+          {
+            "k": 0.1,
+            "n_called": 938,
+            "precision": 0.1727,
+            "recall": 0.2341,
+            "lift": 2.34
+          },
+          {
+            "k": 0.2,
+            "n_called": 1876,
+            "precision": 0.1477,
+            "recall": 0.4003,
+            "lift": 2.0
+          },
+          {
+            "k": 0.3,
+            "n_called": 2814,
+            "precision": 0.1308,
+            "recall": 0.5318,
+            "lift": 1.77
+          }
+        ]
+      }
+    }
+  },
+  "segments": [
+    {
+      "segment": "product_type",
+      "value": "carbody",
+      "n": 2575,
+      "conversion": 0.0641,
+      "mean_score": 0.075,
+      "roc_auc": 0.6934,
+      "pr_auc": 0.1451
+    },
+    {
+      "segment": "product_type",
+      "value": "thirdparty",
+      "n": 6805,
+      "conversion": 0.0774,
+      "mean_score": 0.0999,
+      "roc_auc": 0.697,
+      "pr_auc": 0.1513
+    },
+    {
+      "segment": "channel",
+      "value": "CRM",
+      "n": 1129,
+      "conversion": 0.1027,
+      "mean_score": 0.1026,
+      "roc_auc": 0.6922,
+      "pr_auc": 0.1935
+    },
+    {
+      "segment": "channel",
+      "value": "Paid",
+      "n": 3044,
+      "conversion": 0.0631,
+      "mean_score": 0.086,
+      "roc_auc": 0.6843,
+      "pr_auc": 0.1222
+    },
+    {
+      "segment": "channel",
+      "value": "Referral",
+      "n": 1662,
+      "conversion": 0.0632,
+      "mean_score": 0.0868,
+      "roc_auc": 0.7215,
+      "pr_auc": 0.1521
+    },
+    {
+      "segment": "channel",
+      "value": "SEO",
+      "n": 3545,
+      "conversion": 0.0787,
+      "mean_score": 0.099,
+      "roc_auc": 0.6908,
+      "pr_auc": 0.1547
+    }
+  ],
+  "predicted_vs_actual_by_month": [
+    {
+      "month": "2026-04",
+      "leads": 10081,
+      "actual": 0.0976,
+      "predicted": 0.0932
+    },
+    {
+      "month": "2026-05",
+      "leads": 10245,
+      "actual": 0.0972,
+      "predicted": 0.0932
+    },
+    {
+      "month": "2026-06",
+      "leads": 9840,
+      "actual": 0.0949,
+      "predicted": 0.0936
+    },
+    {
+      "month": "2026-07",
+      "leads": 10454,
+      "actual": 0.0936,
+      "predicted": 0.0935
+    },
+    {
+      "month": "2026-08",
+      "leads": 9380,
+      "actual": 0.0738,
+      "predicted": 0.0931
+    }
+  ],
+  "permutation_importance": [
+    {
+      "feature": "visited_offer_page",
+      "pr_auc_drop": 0.022064077057923927
+    },
+    {
+      "feature": "has_previous_purchase",
+      "pr_auc_drop": 0.02047122576118733
+    },
+    {
+      "feature": "days_to_policy_expiry",
+      "pr_auc_drop": 0.018118900632487122
+    },
+    {
+      "feature": "offer_views_last_7d",
+      "pr_auc_drop": 0.006741014314900956
+    },
+    {
+      "feature": "channel",
+      "pr_auc_drop": 0.004578411184068616
+    },
+    {
+      "feature": "minutes_since_abandonment",
+      "pr_auc_drop": 0.003918946079103304
+    },
+    {
+      "feature": "discount_percent",
+      "pr_auc_drop": 0.0033146674878421303
+    },
+    {
+      "feature": "payment_type",
+      "pr_auc_drop": 0.002671601159985613
+    },
+    {
+      "feature": "sessions_last_7d",
+      "pr_auc_drop": 0.0013652064779584212
+    },
+    {
+      "feature": "price_comparisons_last_7d",
+      "pr_auc_drop": 0.0007942183897237387
+    },
+    {
+      "feature": "device",
+      "pr_auc_drop": 0.0006463078227273248
+    },
+    {
+      "feature": "city",
+      "pr_auc_drop": 0.0004950291282490767
+    },
+    {
+      "feature": "insurance_company",
+      "pr_auc_drop": 0.00023865004606684245
+    },
+    {
+      "feature": "days_since_last_visit",
+      "pr_auc_drop": 2.9893309516915156e-06
+    },
+    {
+      "feature": "product_type",
+      "pr_auc_drop": -8.824256320231576e-05
+    },
+    {
+      "feature": "partner",
+      "pr_auc_drop": -0.0002704990599843397
+    },
+    {
+      "feature": "price",
+      "pr_auc_drop": -0.0009225467594302372
+    }
+  ]
+}
